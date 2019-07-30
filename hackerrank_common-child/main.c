@@ -6,6 +6,10 @@
 //  Copyright © 2019 ernesto alvarado. All rights reserved.
 //
 
+// XXX: https://www.martinkysel.com/hacker-rank-common-child-solution/
+// XXX: https://codereview.stackexchange.com/questions/127448/high-execution-time-of-lcs-length-program-in-python2
+// XXX: https://www.hackerrank.com/rest/contests/master/challenges/common-child/hackers/kira/download_solution?primary=true
+
 #include <assert.h>
 #include <limits.h>
 #include <math.h>
@@ -54,15 +58,14 @@ int commonChild(char* s1, char* s2) {
             char cj=s2[j];
             short up=ultima_posicion[i][ord(cj)];
             int dpt =dp[i+1][j];
-            //            if(up!=i){
-            if(s1[i]!=s2[j]){
+            if(up!=i){
                 /*
-                 if(up==-1){
-                 up=i;
-                 }
-                 // dpt=max(dp[up][j]+1,dpt);
+                if(up==-1){
+                    up=i;
+                }
+                dpt=max(dp[up][j]+1,dpt);
                  */
-                dpt=max(dp[i][j+1],dpt);
+                                dpt=max(dp[i][j+1],dpt);
             }
             else{
                 dpt=dp[i][j]+1;
